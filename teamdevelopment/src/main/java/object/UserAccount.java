@@ -4,6 +4,7 @@ public class UserAccount implements Serializable{
 	private String id;
 	private String address;
 	private String pass;
+	private String name;//使わない
 
 	public UserAccount() {
 	}

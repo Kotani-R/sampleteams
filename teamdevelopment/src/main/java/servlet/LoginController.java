@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import object.UserAccount;
 import sql.Login;
+import sql.Register;
 
 // URLパターン
 @WebServlet("/LoginController")
@@ -94,9 +95,9 @@ public class LoginController extends HttpServlet {
 			// 登録するユーザーの情報を設定
 			UserAccount registerUser = new UserAccount(id, address, pass);
 			
-			//Register rgs = new Register();
+			Register rgs = new Register();
 			// DB接続して会員情報を登録(INSERT)
-			//rgs.insert(id, address, pass);
+			rgs.insert(id, address, pass);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
 		}
