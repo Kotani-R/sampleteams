@@ -13,7 +13,9 @@ public class Register {
 	 
 	 *********************************************/
 	public void insert(String id, String address, String pass) {
-		System.out.println(id+address+pass);
+
+		System.out.println(id + address + pass);//**************************************後で消す
+
 		// JDBCドライバの読み込み
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -24,9 +26,14 @@ public class Register {
 
 		Connection conn = null;
 		// 接続
+		/****************************
+		 
+			修正
+		
+		*****************************/
 		try {
 			// データベースへの接続
-			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/teamdevelopment", "postgres",
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sampleteams", "postgres",
 					"reizero9422");
 			// SQL送信処理??????????
 			Statement stmt = conn.createStatement();
@@ -39,8 +46,10 @@ public class Register {
 			pStmt.setString(3, pass);
 
 			int result = pStmt.executeUpdate();
+			System.out.println("レジスタ－41行目INSERT成功");//***************************************後で消す
 
 		} catch (SQLException e) {
+			System.out.println(" データベースへの接続がしっぱいしました");
 			e.printStackTrace();
 		} finally {
 			// データベース接続の切断

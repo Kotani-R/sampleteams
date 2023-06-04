@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import object.UserAccount;
 import sql.Login;
 import sql.Register;
 
@@ -67,14 +66,17 @@ public class LoginController extends HttpServlet {
 		
 		// ログインをしてTOP画面に遷移
 		if (newRegister.equals("no")) {
-			System.out.println("postメソッド"+pass);
+			
+			//registerUser.setId(id);
+			//registerUser.setPass(pass);
+			System.out.println("postメソッド"+pass);// ********************後で消す
 			Login lgn = new Login();
 
 			// ログイン処理を行なう
 			// DBに接続して会員情報と照会
 			// 一致しなかったらログイン画面に戻る
 
-			// リスト＜Beanクラス＞に検索結果を格納する
+			// リストに検索結果を格納する
 			boolean user_list = lgn.login(id, pass);
 			if (user_list == false) {
 				System.out.println("idまたはパスワードが間違っています");
@@ -93,7 +95,7 @@ public class LoginController extends HttpServlet {
 			// 新規会員登録をして会員情報をDBに登録	
 		} else if (newRegister.equals("ok")) {
 			// 登録するユーザーの情報を設定
-			UserAccount registerUser = new UserAccount(id, address, pass);
+			
 			
 			Register rgs = new Register();
 			// DB接続して会員情報を登録(INSERT)
@@ -101,7 +103,5 @@ public class LoginController extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
 		}
-
 	}
-
 }

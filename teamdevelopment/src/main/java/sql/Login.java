@@ -17,7 +17,7 @@ public class Login {
 	 *********************************************/
 	public boolean login(String id, String pass) {
 		// 検索結果格納のため、Beanクラスをインスタンス
-					UserAccount resultUserInfo = new UserAccount();
+		UserAccount resultUserInfo = new UserAccount(id, pass);
 		// 複数のユーザ情報を格納するため、Beanを格納する配列を作成
 		ArrayList<UserAccount> array_userinfo = new ArrayList<UserAccount>();
 
@@ -47,7 +47,8 @@ public class Login {
 			// 入力されたユーザーIDとパスワードをSQLの条件にする
 			pstmt.setString(1, resultUserInfo.getId());
 			pstmt.setString(2, resultUserInfo.getPass());
-			System.out.println(resultUserInfo.getPass());// null
+			
+			System.out.println("passの値"+resultUserInfo.getPass());//************************** null
 			// SQLの実行
 			ResultSet res = pstmt.executeQuery();
 
@@ -55,9 +56,11 @@ public class Login {
 
 			 // ユーザーIDとパスワードが一致するユーザーが存在した時
             if (res.next()) {
+            	 System.out.println("ユーザーIDとパスワードが一致するユーザーが存在しました");
                 user_list = true;
+               
             } else {
-                
+            	 System.out.println("ユーザーIDとパスワードが一致するユーザーが存在しませんでした");
 
                  user_list= false;
             }

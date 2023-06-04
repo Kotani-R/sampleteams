@@ -5,12 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Top</title>
+<link rel="stylesheet" href="../css/top.css">
 </head>
 <body>
 <header>
 JavaTeamDevelopment
 </header>
 <p>
+<!--入力画面のコントローラーのURLパターンとアクション属性をセット -->
 自己紹介登録<a href="RoginController?action = rgs">登録に進む</a>
 </p>
 新しく自己紹介を作ります。<br>
@@ -19,6 +21,7 @@ JavaTeamDevelopment
 最高の自己紹介を完成させて、よりあなたを<br>
 知ってもらえるチャンスにしましょう。
 <p>
+<!--一覧画面のコントローラーのURLパターンとアクション属性をセット -->
 自己紹介登録者一覧<a href="RoginController?action = list">一覧画面に進む</a>
 </p>
 登録している人を確認します。
