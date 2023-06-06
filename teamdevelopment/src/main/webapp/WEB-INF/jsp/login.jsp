@@ -1,27 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="./css/login.css">
+
 </head>
 <body>
-<header>
-JavaTeamDevelopment
-</header>
-<main>
-<h1>ログイン</h1>
-<form action="LoginController" method="post">
-UserID:<input type="text" name= "id"><br>
-password:<input type="password" name= "pass"><br>
-<input type="hidden" name = "newRegister" value="no">
-<input type="submit" value="登録">
-</form>
-<p>
-<a href="LoginController?action=new">新規会員登録はこちら</a>
-</p>
-</main>
+	<jsp:include page="header.jsp" />
+	
+		<div class="form">
+		<h1>ログイン</h1>
+			<form action="LoginController" method="post">
+				<div class="inputs">
+					<label class="label">UserID</label> <input class="input_form"
+						type="text" name="id">
+				</div>
+				<div class="inputs">
+					<label class="label">Password</label> <input class="input_form"
+						type="password" name="pass">
+				</div>
+				
+				<input type="hidden" name="newRegister" value="no">
+				<div class="btn-area">
+				<input type="submit" value="ログイン">
+				</div>
+			</form>
+			<p class="link">
+			<a href="LoginController?action=new">新規会員登録はこちら</a>
+		</p>
+		</div>
+		
+
+	
 </body>
 </html>

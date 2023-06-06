@@ -12,7 +12,7 @@ User registerUser = (User) request.getAttribute("registerUser");
 <head>
 <meta charset="UTF-8">
 <title>登録完了</title>
-<link rel="stylesheet" href="../css/registerDone.css">
+<link rel="stylesheet" href="./css/registerDone.css">
 </head>
 <body>
 <p>自己紹介の登録が完了しました！</p>
