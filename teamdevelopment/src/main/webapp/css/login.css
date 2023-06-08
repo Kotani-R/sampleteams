@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+/**/
+body {
+	background-color: #f6f6f6;
+	height: 100vh;
+}
+
+/**/
+a {
+	text-decoration: none;
+	text-align: center;
+}
+
+/**/
+h1 {
+	text-align: center;
+}
+
+/*form {
+	width: 600px;
+	margin: 0 auto;
+}*/
+
+
+/**/
+.form {
+	width: 600px;
+	margin: 0 auto;
+}
+
+/**/
+.inputs {
+	overflow: hidden;
+	/*フォームの隙間*/
+	margin-bottom: 20px;
+}
+
+/**/
+.label {
+	/*ラベルを左に移動*/
+	float: left;
+	margin-right: 20px;
+	width: 135px;
+	line-height: 50px;
+	font-weight: bold;
+	padding-left: 10px;
+}
+
+/**/
+.input_form {
+	float: left;
+	width: 300px;
+}
+
+/**/
+.link {
+	/* 中央に配置 */
+	text-align: center;
+}
+
+/**/
+input[type="text"],
+input[type="password"] {
+	border: solid 1px #e0e0e0;
+	border-radius: 5px;
+	padding: 15px;
+	font-size: 15px;
+}
+
+/**/
+.btn-area {
+	text-align: center;
+}
+
+/**/
+input[type="submit"] {
+	background: #7a87cf;
+	border: none;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10px 60px;
+	margin: 0 10px;
+	border-radius: 10px;
+}

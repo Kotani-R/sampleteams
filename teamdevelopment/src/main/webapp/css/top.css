@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+body {
+	background-color: rgb(205, 205, 205);
+	height: 100vh;
+}
+
+p {
+	text-align: center;
+	line-height: 30px;
+	font-size: 17px;
+}
+
+a {
+	text-decoration: none;
+	
+}
+
+.position {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+/* 白枠のCSS */
+.back {
+	margin: 0px auto;
+	width: 35%;
+	height: 60%;
+	background-color: rgb(243, 243, 243);
+	
+}
+/*  */
+.registerIntroduction {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 7%;
+	margin-bottom: 25px;
+}
+/* 白枠内の文字の位置 */
+.text {
+	margin-top: 10%;
+}
+/* リンクの部分 */
+.btn-area {
+	background: #7a87cf;
+	border: none;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10px 40px;
+	margin: 0 10px;
+	border-radius: 10px;
+}
+.linkText{
+	/* リンクの文字の色 */
+	color: #000000;
+}
