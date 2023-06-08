@@ -88,18 +88,18 @@ public class LoginController extends HttpServlet {
 			//HttpSession session = request.getSession();
 			//session.setAttribute("registerUser", registerUser);
 
-			// フォワード
+			// フォワード(TOP画面)
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
 			dispatcher.forward(request, response);
 
-			// 新規会員登録をして会員情報をDBに登録	
+			
+		// 新規会員登録をして会員情報をDBに登録	
 		} else if (newRegister.equals("ok")) {
 			// 登録するユーザーの情報を設定
-			
-			
 			Register rgs = new Register();
 			// DB接続して会員情報を登録(INSERT)
 			rgs.insert(id, address, pass);
+			// フォワード(ログイン画面)
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
 		}

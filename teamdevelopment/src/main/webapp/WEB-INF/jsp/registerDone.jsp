@@ -15,15 +15,17 @@ User registerUser = (User) request.getAttribute("registerUser");
 <link rel="stylesheet" href="./css/registerDone.css">
 </head>
 <body>
-<p>自己紹介の登録が完了しました！</p>
-<p>
-管理番号:<%= registerUser.adminNum() %><br>
-名前:<%= registerUser.getName() %><br>
-フリガナ:<%= registerUser.getRubyName() %><br>
-性別:<%= registerUser.getGender() %><br>
-趣味:<%= registerUser.getHobby() %><br>
-一言:<%= registerUser.getComment() %><br>
-</p>
-<a href= "RoginController?action=in">TOPへ戻る</a>
+	<p>
+	<h1>自己紹介の登録が完了しました！</h1>
+	</p>
+	<div>
+		<p>下記内容の自己紹介の登録が完了しました！</p>
+		<p>
+			管理番号:<%=registerUser.adminNum()%><br> 名前:<%=registerUser.getName()%><br>
+			フリガナ:<%=registerUser.getRubyName()%><br> 性別:<%=registerUser.getGender()%><br>
+			趣味:<%=registerUser.getHobby()%><br> 一言:<%=registerUser.getComment()%><br>
+		</p>
+	</div>
+	<a href="RoginController?action=in">TOPへ戻る</a>
 </body>
 </html>

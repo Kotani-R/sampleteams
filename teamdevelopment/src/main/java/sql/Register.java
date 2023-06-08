@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Register {
 	/****************************************
@@ -13,9 +12,6 @@ public class Register {
 	 
 	 *********************************************/
 	public void insert(String id, String address, String pass) {
-
-		System.out.println(id + address + pass);//**************************************後で消す
-
 		// JDBCドライバの読み込み
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -26,20 +22,17 @@ public class Register {
 
 		Connection conn = null;
 		// 接続
-		/****************************
-		 
-			修正
-		
-		*****************************/
 		try {
 			// データベースへの接続
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sampleteams", "postgres",
 					"reizero9422");
 			// SQL送信処理??????????
-			Statement stmt = conn.createStatement();
+			//Statement stmt = conn.createStatement();
+			
 			// 入力した情報をINSERT
 			String sql = "INSERT INTO MEMBER (ID, ADDRESS,PASS) values (?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
 			// INSERT文中の「？」に使用する値を設定
 			pStmt.setString(1, id);
 			pStmt.setString(2, address);
@@ -49,8 +42,9 @@ public class Register {
 			System.out.println("レジスタ－41行目INSERT成功");//***************************************後で消す
 
 		} catch (SQLException e) {
-			System.out.println(" データベースへの接続がしっぱいしました");
+			System.out.println(" データベースへの接続が失敗しました");
 			e.printStackTrace();
+			
 		} finally {
 			// データベース接続の切断
 			if (conn != null) {

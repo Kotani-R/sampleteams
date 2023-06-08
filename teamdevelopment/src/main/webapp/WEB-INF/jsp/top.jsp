@@ -19,7 +19,7 @@
 						<h2>自己紹介登録</h2>
 					</div>
 					<div class="btn-area">
-						<a href="RoginController?action = rgs">登録に進む</a>
+						<a class="linkText" href="inputController?action = rgs">登録に進む</a>
 					</div>
 				</div>
 
@@ -33,7 +33,7 @@
 						<h2>自己紹介登録者一覧</h2>
 					</div>
 					<div class="btn-area">
-						<a href="RoginController?action = list">一覧画面に進む</a>
+						<a class="linkText" href="ListView?action = list">一覧画面に進む</a>
 					</div>
 				</div>
 				<p>

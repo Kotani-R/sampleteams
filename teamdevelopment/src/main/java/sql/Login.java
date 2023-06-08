@@ -15,6 +15,8 @@ public class Login {
 	ログイン画面で入力した情報をDBのid,passと照会するメソッド
 	 
 	 *********************************************/
+
+	// 戻り値をbooleanからAllayListに変更予定!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	public boolean login(String id, String pass) {
 		// 検索結果格納のため、Beanクラスをインスタンス
 		UserAccount resultUserInfo = new UserAccount(id, pass);
@@ -29,17 +31,12 @@ public class Login {
 					"JDBCドライバを読み込めませんでした");
 		}
 		Connection conn = null;
-		boolean user_list =true;
+		boolean user_list = true;
 		// 接続
 		try {
 			// データベースへの接続
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sampleteams", "postgres",
 					"reizero9422");
-			/****************************
-			 
-			 			修正
-			 
-			 *****************************/
 
 			String sql = "SELECT id FROM member WHERE id=? AND pass=?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -47,23 +44,18 @@ public class Login {
 			// 入力されたユーザーIDとパスワードをSQLの条件にする
 			pstmt.setString(1, resultUserInfo.getId());
 			pstmt.setString(2, resultUserInfo.getPass());
-			
-			System.out.println("passの値"+resultUserInfo.getPass());//************************** null
-			// SQLの実行
+
+			// SELECTの実行。結果表を取得
 			ResultSet res = pstmt.executeQuery();
 
-			
-
-			 // ユーザーIDとパスワードが一致するユーザーが存在した時
-            if (res.next()) {
-            	 System.out.println("ユーザーIDとパスワードが一致するユーザーが存在しました");
-                user_list = true;
-               
-            } else {
-            	 System.out.println("ユーザーIDとパスワードが一致するユーザーが存在しませんでした");
-
-                 user_list= false;
-            }
+			// ユーザーIDとパスワードが一致するユーザーが存在した時
+			if (res.next()) {
+				System.out.println("ユーザーIDとパスワードが一致するユーザーが存在しました");
+				user_list = true;
+			} else {
+				System.out.println("ユーザーIDとパスワードが一致するユーザーが存在しませんでした");
+				user_list = false;
+			}
 
 		} catch (SQLException sql_e) {
 			// エラーハンドリング
@@ -81,8 +73,6 @@ public class Login {
 			}
 		}
 		// リストを返す
-		
 		return user_list;
-
 	}
 }

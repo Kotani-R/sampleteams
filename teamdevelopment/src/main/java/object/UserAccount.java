@@ -1,6 +1,10 @@
 package object;
+
 import java.io.Serializable;
-public class UserAccount implements Serializable{
+
+// ログインするときに使用するmodel
+// UserAccountとListAccountは統合する予定
+public class UserAccount implements Serializable {
 	private String id;
 	private String address;
 	private String pass;
@@ -9,31 +13,27 @@ public class UserAccount implements Serializable{
 	public UserAccount() {
 	}
 
-	public UserAccount(String id, String address,String pass) {
+	// 新規会員登録用コンストラクタ
+	public UserAccount(String id, String address, String pass) {
 		this.id = id;
 		this.address = address;
 		this.pass = pass;
-	}public UserAccount(String id, String pass) {
+	}
+	// ログイン処理をするときにしようするコンストラクタ
+	public UserAccount(String id, String pass) {
 		this.id = id;
-		this.pass = pass;
-	}
-	public String getId() {
-		return this.id;
-	}
-	public String getPass() {
-		return this.pass;
-	}
-	public String getAddress() {
-		return this.address;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public void setPass(String pass) {
 		this.pass = pass;
 	}
 
+	public String getId() {
+		return this.id;
+	}
+
+	public String getPass() {
+		return this.pass;
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
 }

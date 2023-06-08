@@ -5,37 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>新規会員登録</title>
+<link rel="stylesheet" href="./css/sanitize.css">
 <link rel="stylesheet" href="./css/registerForm.css">
+
 </head>
 <body>
 	<jsp:include page="header.jsp" />
 	<h1>新規会員登録</h1>
 	<form action="LoginController" method="post">
 		<div class="inputs">
-			<label class="label">UserID</label>
-			<label class="requiredItems">必須</label>
-			 <input class="input_form"
-				type="text" name="id">
+			<label class="label">UserID</label> <label class="requiredItems">必須</label>
+			<input  type="text" name="id">
 		</div>
 		<div class="inputs">
-			<label class="label">MailAddress</label>
-			<label class="requiredItems">必須</label>
-			 <input class="input_form"
-				type="email" name="address">
+			<label class="label">MailAddress</label> <label class="requiredItems">必須</label>
+			<input  type="email" name="address">
 		</div>
 
 		<div class="inputs">
-			<label class="label">PassWord</label> 
-			<label class="requiredItems">必須</label>
-			<input class="input_form"
-				type="password" name="pass">
+			<label class="label">PassWord</label> <label class="requiredItems">必須</label>
+			<input  type="password" name="pass">
 		</div>
-		<input type="hidden" name="newRegister" value="ok"> 
+		<input type="hidden" name="newRegister" value="ok">
 		<div class="btn-area">
-		<input type="submit" value="登録">
+			<input type="submit" value="登録">
 		</div>
 	</form>
 	<p class="link">
-	<a href="LoginController">ログイン画面へ</a>
+		<a href="LoginController">ログイン画面へ</a>
 </body>
 </html>
