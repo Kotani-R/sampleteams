@@ -13,12 +13,12 @@ public class UserAccount implements Serializable {
 	public UserAccount() {
 	}
 
-	// 新規会員登録用コンストラクタ
-	public UserAccount(String id, String address, String pass) {
-		this.id = id;
-		this.address = address;
-		this.pass = pass;
-	}
+	// 新規会員登録用コンストラクタいらないかも？
+//	public UserAccount(String id, String address, String pass) {
+//		this.id = id;
+//		this.address = address;
+//		this.pass = pass;
+//	}
 	// ログイン処理をするときにしようするコンストラクタ
 	public UserAccount(String id, String pass) {
 		this.id = id;
