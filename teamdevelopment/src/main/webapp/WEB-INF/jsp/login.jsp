@@ -32,7 +32,7 @@
 			</div>
 		</form>
 		<p class="link">
-			<!-- 新規下院登録画面へ遷移 -->
+			<!-- 新規会員登録画面へ遷移 -->
 			<a href="LoginController?action=new">新規会員登録はこちら</a>
 		</p>
 	</div>
