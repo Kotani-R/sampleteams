@@ -26,7 +26,7 @@ public class Register {
 			// データベースへの接続
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sampleteams", "postgres",
 					"reizero9422");
-			// SQL送信処理??????????
+			// SQL送信処理いらないかも??????????
 			//Statement stmt = conn.createStatement();
 			
 			// 入力した情報をINSERT
