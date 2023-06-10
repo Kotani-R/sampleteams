@@ -27,7 +27,6 @@ a {
 	width: 35%;
 	height: 60%;
 	background-color: rgb(243, 243, 243);
-	
 }
 /*  */
 .registerIntroduction {
@@ -39,6 +38,7 @@ a {
 }
 /* 白枠内の文字の位置 */
 .text {
+	
 	margin-top: 10%;
 }
 /* リンクの部分 */
