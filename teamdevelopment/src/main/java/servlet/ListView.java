@@ -34,13 +34,14 @@ public class ListView extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// SelectUserをインスタンス化
 		SelectUser selectUser = new SelectUser();
+		// データをリストに挿入
 		List<userList> userlist = selectUser.execute();
+		// インスタンスをリクエストスコープにセット
 		request.setAttribute("userlist", userlist);
-		
+		// dispatcherで偏移先を指定
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/listView.jsp");
 		dispatcher.forward(request, response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

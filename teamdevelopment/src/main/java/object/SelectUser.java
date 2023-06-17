@@ -10,7 +10,7 @@ public class SelectUser {
 		samplesDAO samDAO = new samplesDAO();
 		// リストに挿入
 		List<userList> userlist = samDAO.findAll();
-		
+		// リストを返す
 		return userlist;
 			
 	}
