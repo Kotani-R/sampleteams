@@ -87,6 +87,7 @@ public class samplesDAO {
 				// リストに代入
 				userlist.add(userl);
 			}
+		// エラーが起きた場合
 		} catch (SQLException e){
 			e.printStackTrace();
 			return null;

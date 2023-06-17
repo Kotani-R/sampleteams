@@ -1,24 +1,27 @@
 @charset "UTF-8";
-body{
+
+/* リンクの下線を消す */
+a {
 	text-decoration: none;
 }
+/* テーブル全体にコーディング、線を黒色にし幅1pxの一本の線にする */
 table, td, th {
     border-color: black;
     border-style: solid;
     border-width: 1px;
     border-collapse: collapse;
 }
-
+/* 幅を親要素の60%にし上下に4%の余白を追加 */
 table {
 	width: 60%;
 	height: 100%;
 	margin: 4% auto ;
 }
-
+/* 全体の文字を中央揃えにし縦横を100%まで広げる、背景色を#eeeeeeに */
 .center {
 	margin: 10% auto 10%;
 	text-align: center;
-	width:100%;
+	width: 100%;
 	height: 100%;
 	background-color: #eeeeee;
 }
@@ -29,38 +32,46 @@ table {
 	height: 100%;
 	background-color: #eeeeee;
 }
+/* 背景色を変える */
 th {
 	background-color: gray;
 }
+/* 幅を親要素の70%にし余白を上下20px,左右150px追加 */
 .right {
 	width: 70%;
 	padding:20px 150px;
 }
+/* 幅を親要素の30%にし余白を上下20px,左右100px追加 */
 .left {
 	width: 30%;
 	padding:20px 100px;
 }
+/* 幅を親要素の70%にし余白を上下20px,左右100px追加 */
 .right1 {
 	width: 70%;
 	padding:20px 100px;
 }
+/* 幅を親要素の30%にし余白を上下20px,左右50px追加 */
 .left1 {
 	width: 30%;
 	padding:20px 50px;
 }
 .change {
 	color: black;
+	text-decoration: none;
 }
 .change:hover {
 	color: white;
 	transition: 0.5s;
 }
+/* 要素を横並びにし均一に並べる */
 .order {
 	width: 60%;
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto 4%;
 }
+/* 文字色を黒に背景色を青にする */
 .blue {
 	color: black;
 	background-color: #BAD3FF;
@@ -68,6 +79,7 @@ th {
 	font-weight: bold;
 	border-radius: 10px;
 }
+/* 文字色を黒に背景色を赤にする */
 .red {
 	color: black;
 	background-color: #FFBEDA;
@@ -75,6 +87,7 @@ th {
 	font-weight: bold;
 	border-radius: 10px;
 }
+/* マウスが要素に乗った時に色を変える */
 .blue:hover {
 	color: white;
 	background-color: #2C7CFF;

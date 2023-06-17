@@ -20,6 +20,7 @@ public class userList {
 		this.id = id;
 		this.name = name;
 	}
+	
 	public userList(String id, String name, String kanri, String sex, String self_intro) {
 		this.id = id;
 		this.name = name;
