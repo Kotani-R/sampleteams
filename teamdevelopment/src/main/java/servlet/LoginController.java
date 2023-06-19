@@ -97,10 +97,11 @@ public class LoginController extends HttpServlet {
 			MemberDAO memDAO = new MemberDAO();
 			// DB接続して会員情報を登録(INSERT)
 			memDAO.insert(id, address, pass);
-			// フォワード(ログイン画面) リダイレクトに変更する!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
-			//dispatcher.forward(request, response);
-			response.sendRedirect("WEB-INF/jsp/login.jsp");
+			// フォワード(ログイン画面) 
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+			dispatcher.forward(request, response);
+			
+			
 		}
 	}
 }
