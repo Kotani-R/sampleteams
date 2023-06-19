@@ -15,19 +15,23 @@
 	<form action="LoginController" method="post">
 		<div class="inputs">
 			<label class="label">UserID</label> <label class="requiredItems">必須</label>
-			<input  type="text" name="id">
+			<%-- ID入力欄 --%>
+			<input type="text" name="id">
 		</div>
 		<div class="inputs">
 			<label class="label">MailAddress</label> <label class="requiredItems">必須</label>
-			<input  type="email" name="address">
+			<%-- メールアドレス入力欄 --%>
+			<input type="email" name="address">
 		</div>
 
 		<div class="inputs">
 			<label class="label">PassWord</label> <label class="requiredItems">必須</label>
-			<input  type="password" name="pass">
+			 <%-- パスワード入力欄 --%>
+			<input type="password" name="pass">
 		</div>
 		<input type="hidden" name="newRegister" value="ok">
 		<div class="btn-area">
+			<%-- 送信ボタン --%>
 			<input type="submit" value="登録">
 		</div>
 	</form>

@@ -8,9 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import sql.Login;
-import sql.Register;
+import object.LoginAccount;
+import sql.MemberDAO;
 
 // URLパターン
 @WebServlet("/LoginController")
@@ -63,21 +64,15 @@ public class LoginController extends HttpServlet {
 		String address = request.getParameter("address");
 		String pass = request.getParameter("pass");
 		String newRegister = request.getParameter("newRegister");
-		
+
 		// ログインをしてTOP画面に遷移
 		if (newRegister.equals("no")) {
-			
-			//registerUser.setId(id);
-			//registerUser.setPass(pass);
-			System.out.println("postメソッド"+pass);// ********************後で消す
-			Login lgn = new Login();
-
 			// ログイン処理を行なう
 			// DBに接続して会員情報と照会
 			// 一致しなかったらログイン画面に戻る
-
+			MemberDAO memDAO = new MemberDAO();
 			// リストに検索結果を格納する
-			boolean user_list = lgn.login(id, pass);
+			boolean user_list = memDAO.login(id, pass);
 			if (user_list == false) {
 				System.out.println("idまたはパスワードが間違っています");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
@@ -85,23 +80,27 @@ public class LoginController extends HttpServlet {
 			}
 
 			//セッションスコープに登録ユーザーを保存
-			//HttpSession session = request.getSession();
-			//session.setAttribute("registerUser", registerUser);
+			LoginAccount loginAccount = new LoginAccount(id,pass);
+			HttpSession session = request.getSession();
+			session.setAttribute("loginAccount", loginAccount);
 
 			// フォワード(TOP画面)
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
 			dispatcher.forward(request, response);
 
-			
-		// 新規会員登録をして会員情報をDBに登録	
+			// 新規会員登録をして会員情報をDBに登録	
 		} else if (newRegister.equals("ok")) {
+			// Validationメソッドを実行して
+			// 条件と一致していたら
+
 			// 登録するユーザーの情報を設定
-			Register rgs = new Register();
+			MemberDAO memDAO = new MemberDAO();
 			// DB接続して会員情報を登録(INSERT)
-			rgs.insert(id, address, pass);
-			// フォワード(ログイン画面)
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
-			dispatcher.forward(request, response);
+			memDAO.insert(id, address, pass);
+			// フォワード(ログイン画面) リダイレクトに変更する!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+			//dispatcher.forward(request, response);
+			response.sendRedirect("WEB-INF/jsp/login.jsp");
 		}
 	}
 }
