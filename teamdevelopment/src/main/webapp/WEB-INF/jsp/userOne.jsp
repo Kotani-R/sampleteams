@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="object.userList, java.util.List"%>
+<%@ page import="object.userList, java.util.List, java.util.Arrays"%>
 <%
 userList user = (userList) request.getAttribute("user");
 %>
@@ -28,6 +28,17 @@ userList user = (userList) request.getAttribute("user");
 			<tr>
 				<td class="left1">性別</td>
 				<td class="right1"><%= user.getSex()%></td>
+			</tr>
+			<tr>
+				<td class="left1">趣味</td>
+				<td class="right1">
+				<% for (int i = 0; i < user.getHobby().length; i++) { %>
+					<%= user.getHobby()[i] %>
+					<% if (i < user.getHobby().length - 1) { %>
+					,
+					<% } %>
+				<% } %>
+				</td>
 			</tr>
 			<tr>
 				<td class="left1">一言</td>

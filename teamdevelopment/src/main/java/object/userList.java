@@ -7,6 +7,7 @@ public class userList {
 	private String kanri;
 	private String sex;
 	private String self_intro;
+	private String[] hobby;
 	
 	// コンストラクタを作成
 	public userList() {
@@ -20,13 +21,13 @@ public class userList {
 		this.id = id;
 		this.name = name;
 	}
-	
-	public userList(String id, String name, String kanri, String sex, String self_intro) {
+	public userList(String id, String name, String kanri, String sex, String self_intro, String[] hobby) {
 		this.id = id;
 		this.name = name;
 		this.kanri = kanri;
 		this.sex = sex;
 		this.self_intro = self_intro;
+		this.hobby = hobby;
 	}
 	
 	// ゲッターを作成
@@ -44,6 +45,9 @@ public class userList {
 	}
 	public String getSelf_intro() {
 		return this.self_intro;
+	}
+	public String[] getHobby() {
+		return this.hobby;
 	}
 	
 }
