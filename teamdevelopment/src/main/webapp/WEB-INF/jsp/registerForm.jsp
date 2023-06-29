@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +15,34 @@
 	<h1>新規会員登録</h1>
 	<form action="LoginController" method="post">
 		<div class="inputs">
-			<label class="label">UserID</label> <label class="requiredItems">必須</label>
+			<%-- Validationメッセージを表示--%>
+			<c:if test="${validateRegister.messageId != null }">
+				<c:out value="${validateRegister.messageId}" />
+			</c:if>
+			<br> <label class="label">UserID</label> <label
+				class="requiredItems">必須</label>
 			<%-- ID入力欄 --%>
 			<input type="text" name="id">
 		</div>
 		<div class="inputs">
-			<label class="label">MailAddress</label> <label class="requiredItems">必須</label>
+			<%-- Validationメッセージを表示--%>
+			<c:if test="${validateRegister.messageAddress != null }">
+				<c:out value="${validateRegister.messageAddress}" />
+			</c:if>
+			<br> <label class="label">MailAddress</label> <label
+				class="requiredItems">必須</label>
 			<%-- メールアドレス入力欄 --%>
 			<input type="email" name="address">
 		</div>
 
 		<div class="inputs">
-			<label class="label">PassWord</label> <label class="requiredItems">必須</label>
-			 <%-- パスワード入力欄 --%>
+			<%-- Validationメッセージを表示--%>
+			<c:if test="${validateRegister.messagePass != null }">
+				<c:out value="${validateRegister.messagePass}" />
+			</c:if>
+			<br> <label class="label">PassWord</label> <label
+				class="requiredItems">必須</label>
+			<%-- パスワード入力欄 --%>
 			<input type="password" name="pass">
 		</div>
 		<input type="hidden" name="newRegister" value="ok">
