@@ -45,7 +45,7 @@ public class MemberDAO {
 			pStmt.setString(3, pass);
 
 			int result = pStmt.executeUpdate();
-			System.out.println("レジスタ－41行目INSERT成功");//***************************************後で消す
+			System.out.println("レジスタ－48行目INSERT成功");//***************************************後で消す
 
 		} catch (SQLException e) {
 			System.out.println(" データベースへの接続が失敗しました");
@@ -71,9 +71,10 @@ public class MemberDAO {
 	 *********************************************/
 
 	// 戻り値をbooleanからAllayListに変更予定!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	public boolean login(String id, String pass) {
+	public ArrayList<LoginAccount> login(String id, String pass) {
 		// 検索結果格納のため、Beanクラスをインスタンス
 		LoginAccount resultUserInfo = new LoginAccount(id, pass);
+		System.out.println(id+"と"+pass);
 		// 複数のユーザ情報を格納するため、Beanを格納する配列を作成
 		ArrayList<LoginAccount> array_userinfo = new ArrayList<LoginAccount>();
 
@@ -85,7 +86,6 @@ public class MemberDAO {
 					"JDBCドライバを読み込めませんでした");
 		}
 		Connection conn = null;
-		boolean user_list = true;
 		// 接続
 		try {
 			// データベースへの接続
@@ -103,13 +103,17 @@ public class MemberDAO {
 			ResultSet res = pstmt.executeQuery();
 
 			// ユーザーIDとパスワードが一致するユーザーが存在した時
-			if (res.next()) {
-				System.out.println("ユーザーIDとパスワードが一致するユーザーが存在しました");
-				user_list = true;
-			} else {
-				System.out.println("ユーザーIDとパスワードが一致するユーザーが存在しませんでした");
-				user_list = false;
-			}
+			while (res.next()) {
+				// ユーザIDとパスワードをBeanクラスへセット
+				resultUserInfo.setId(res.getString("id"));
+				resultUserInfo.setPass(res.getString("pass"));
+				
+				// リストにBeanクラスごと格納
+				array_userinfo.add(resultUserInfo);
+				
+				//Beanクラスを初期化
+				resultUserInfo = new LoginAccount();
+			} 
 
 		} catch (SQLException sql_e) {
 			// エラーハンドリング
@@ -127,7 +131,7 @@ public class MemberDAO {
 			}
 		}
 		// リストを返す
-		return user_list;
+		return array_userinfo;
 	}
 
 	/****************************************

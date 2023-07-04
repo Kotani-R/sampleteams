@@ -12,12 +12,7 @@ public class LoginAccount implements Serializable {
 	public LoginAccount() {
 	}
 
-	// 新規会員登録用コンストラクタいらないかも？
-	//	public UserAccount(String id, String address, String pass) {
-	//		this.id = id;
-	//		this.address = address;
-	//		this.pass = pass;
-	//	}
+	
 	// ログイン処理をするときにしようするコンストラクタ
 	public LoginAccount(String id, String pass) {
 		this.id = id;
@@ -25,14 +20,28 @@ public class LoginAccount implements Serializable {
 	}
 
 	public String getId() {
-		return this.id;
+		return id;
 	}
 
-	public String getPass() {
-		return this.pass;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	
 }

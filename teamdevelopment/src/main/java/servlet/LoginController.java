@@ -74,8 +74,8 @@ public class LoginController extends HttpServlet {
 			// 一致しなかったらログイン画面に戻る
 			MemberDAO memDAO = new MemberDAO();
 			// リストに検索結果を格納する
-			boolean user_list = memDAO.login(id, pass);
-			if (user_list == false) {
+			ArrayList<LoginAccount> user_list = memDAO.login(id, pass);
+			if (user_list == null || user_list.size() != 1) {
 				System.out.println("idまたはパスワードが間違っています");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
 				dispatcher.forward(request, response);
