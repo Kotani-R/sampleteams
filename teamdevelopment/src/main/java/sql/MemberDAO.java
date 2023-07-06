@@ -31,7 +31,7 @@ public class MemberDAO {
 		try {
 			// データベースへの接続
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sampleteams", "postgres",
-					"aaa");
+					"bbb");
 
 			// 入力した情報をINSERT
 			String sql = "INSERT INTO user_info (ID, ADDRESS,PASS) values (?,?,?)";
