@@ -31,9 +31,7 @@ public class MemberDAO {
 		try {
 			// データベースへの接続
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sampleteams", "postgres",
-					"reizero9422");
-			// SQL送信処理いらないかも??????????
-			//Statement stmt = conn.createStatement();
+					"aaa");
 
 			// 入力した情報をINSERT
 			String sql = "INSERT INTO user_info (ID, ADDRESS,PASS) values (?,?,?)";
@@ -45,7 +43,6 @@ public class MemberDAO {
 			pStmt.setString(3, pass);
 
 			int result = pStmt.executeUpdate();
-			System.out.println("レジスタ－48行目INSERT成功");//***************************************後で消す
 
 		} catch (SQLException e) {
 			System.out.println(" データベースへの接続が失敗しました");
@@ -88,9 +85,14 @@ public class MemberDAO {
 		Connection conn = null;
 		// 接続
 		try {
+			/****************************************
+			  
+			データベースの名前を修正する
+			
+			*********************************************/
 			// データベースへの接続
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sampleteams", "postgres",
-					"reizero9422");
+					"aaa");
 
 			String sql = "SELECT id FROM user_info WHERE id=? AND pass=?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -154,9 +156,13 @@ public class MemberDAO {
 
 		// 接続
 		try {
-			// データベースへの接続(竹田さんのDBに接続する!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
+			/****************************************
+			  
+			データベースの名前を修正する
+			
+			*********************************************/
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sampleteams", "postgres",
-					"reizero9422");
+					"aaa");
 
 			String sql = "SELECT ID,NAME FROM user_info ";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
